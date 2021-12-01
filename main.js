@@ -110,7 +110,7 @@ const topCreator = (data) => {
           return 1;
         return -1;
       })
-      .slice(0, 3)
+      .slice(0, SUB_LISTS.LIMIT_LENGTH)
       .map((el) => el[0]);
 
   return top;
