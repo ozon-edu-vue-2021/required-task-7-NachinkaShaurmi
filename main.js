@@ -116,10 +116,10 @@ const topCreator = (data) => {
   return top;
 };
 
-const createLayout = (arr) => {
-  let data = dataCreator(arr);
+const createLayout = (dataFromBack) => {
+  const data = dataCreator(dataFromBack);
+  const top = topCreator(data);
   let current = null;
-  let top = topCreator(data);
 
   renderCommonList(data.list);
 
