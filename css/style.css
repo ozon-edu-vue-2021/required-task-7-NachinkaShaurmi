@@ -168,6 +168,16 @@ body {
           transform: translate3d(0, 630px, 0);
 }
 
+#container .list-view ul li:nth-child(11) {
+  -webkit-transform: translate3d(0, 700px, 0);
+          transform: translate3d(0, 700px, 0);
+}
+
+#container .list-view ul li:nth-child(12) {
+  -webkit-transform: translate3d(0, 770px, 0);
+          transform: translate3d(0, 770px, 0);
+}
+
 #container .list-view ul li:hover {
   background: #efefef;
   cursor: pointer;
@@ -193,6 +203,7 @@ body {
   bottom: 0;
   z-index: 0;
   background: #FFFFFF;
+  
 }
 
 #container .details-view .background {
@@ -205,28 +216,34 @@ body {
   transition: -webkit-transform 0.25s;
   transition: transform 0.25s;
   transition: transform 0.25s, -webkit-transform 0.25s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: x-large;
+  font-weight: 700;
 }
 
 #container .details-view .back {
   position: absolute;
-  top: 20px;
+  top: 40px;
   left: 5px;
   width: 30px;
   height: 30px;
   background: url("../i/back-icon.png");
   background-size: 100%;
   border: 0;
-  -webkit-transform: scale(0.1);
+  cursor: pointer;
+  /* -webkit-transform: scale(0.1);
           transform: scale(0.1);
   -webkit-transition: -webkit-transform 0.15s;
   transition: -webkit-transform 0.15s;
   transition: transform 0.15s;
-  transition: transform 0.15s, -webkit-transform 0.15s;
+  transition: transform 0.15s, -webkit-transform 0.15s; */
   z-index: 1;
 }
 
 #container .details-view ul {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   top: 75px;
