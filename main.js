@@ -7,6 +7,15 @@ const friendsList = document.querySelector("#friends");
 const noFriendsList = document.querySelector("#no-friends");
 const popularList = document.querySelector("#popular");
 
+const SUB_LISTS = {
+  TYPES: {
+    FRIENDS: "Друзья",
+    NO_FRIENDS: "Не в друзья",
+    POPULAR: "Популярные люди",
+  },
+  LIMIT_LENGTH: 3,
+}
+
 const start = async (cb) => {
   try {
     const res = await fetch("./data.json");
@@ -77,7 +86,7 @@ const dataCreator = (arr) => {
         });
         const elWithNoFriends = {
           ...el,
-          noFriends: exclude(el.friends, 12, 3),
+          noFriends: exclude(el.friends, arr.length, SUB_LISTS.LIMIT_LENGTH),
         };
         acc.list.push(elWithNoFriends);
         return acc;
@@ -120,9 +129,9 @@ const createLayout = (arr) => {
     current = findByIndexMemo(data.list, currentId);
     const { name, friends: friendsIdArray, noFriends } = current;
 
-    renderSubList(friendsIdArray, "Друзья", friendsList, data.list);
-    renderSubList(noFriends, "Не в друзья", noFriendsList, data.list);
-    renderSubList(top, "Популярные люди", popularList, data.list);
+    renderSubList(friendsIdArray, SUB_LISTS.TYPES.FRIENDS, friendsList, data.list);
+    renderSubList(noFriends, SUB_LISTS.TYPES.NO_FRIENDS, noFriendsList, data.list);
+    renderSubList(top, SUB_LISTS.TYPES.POPULAR, popularList, data.list);
 
     background.innerHTML = name;
     details.style.zIndex = 1;
